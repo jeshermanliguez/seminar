@@ -78,12 +78,13 @@
     }
 
     #about, #contact {
-      background-color: white;
+      background: linear-gradient(145deg, #ffffff, #f0f0f0);
       border-radius: 16px;
       margin-top: 40px;
-      padding: 50px 30px;
+      padding: 60px 40px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.08);
       position: relative;
+      overflow: hidden;
     }
 
     #about::before, #contact::before {
@@ -98,14 +99,30 @@
       border-radius: 5px;
     }
 
+    #about::after, #contact::after {
+      content: '';
+      position: absolute;
+      bottom: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      background: rgba(31, 64, 55, 0.1);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
     h2 {
       color: #1f4037;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
+      position: relative;
+      z-index: 1;
     }
 
     p {
       font-size: 18px;
       line-height: 1.6;
+      position: relative;
+      z-index: 1;
     }
 
     .about-content {
@@ -119,11 +136,33 @@
     .about-icon {
       font-size: 60px;
       color: #1f4037;
+      animation: floatIcon 2s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
     .contact-info {
       font-size: 18px;
       margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      transition: transform 0.3s;
+    }
+
+    .contact-info p:hover {
+      transform: translateX(5px);
+      color: #1f4037;
     }
 
     .contact-info i {
